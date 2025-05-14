@@ -29,5 +29,10 @@ public class Main {
 
         bst.deleteNode(6);
         System.out.println("after deleting bst.root.right.value "+bst.root.right.value);
+
+        System.out.println("BFS "+bst.BFS());
+        System.out.println("DFSPreOrder "+bst.DFSPreOrder());
+        System.out.println("DFSPostOrder "+bst.DFSPostOrder());
+        System.out.println("DFSInOrder "+bst.DFSInOrder());
     }
 }
