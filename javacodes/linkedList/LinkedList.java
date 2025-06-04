@@ -2,6 +2,8 @@ package javacodes.linkedList;
 
 
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 public class LinkedList {
     private Node head;
@@ -151,6 +153,54 @@ public class LinkedList {
         return temp;
     }
 
+    public boolean hasLoop(){
+
+        Node fast = head;
+        Node slow = head;
+        while(fast != null && fast.next != null){
+            slow=slow.next;
+            fast = fast.next.next;
+            if(slow==fast){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Node findKthFromEnd(int k){
+        Node fast = head;
+        Node slow = head;
+        for(int i =0;i<k;i++){
+
+            if(fast==null){
+                return null;
+            }
+            fast=fast.next;
+        }
+        while(fast!=null){
+            slow = slow.next;
+            fast=fast.next;
+
+        }
+
+        return slow;
+    }
+
+    public Node findMiddleNode(){
+        if(head == null){
+            return null;
+
+        }
+        Node first = head;
+        Node second = head;
+
+        while(first!=null && first.next != null){
+            second = second.next;
+            first=first.next.next;
+        }
+        return second;
+    }
+
     public void reverse(){
         Node temp = head;
         head = tail;
@@ -164,6 +214,24 @@ public class LinkedList {
             temp=after;
         }
     }
+
+    public void removeDuplicates(){
+        Set<Integer> values = new HashSet<>();
+
+        Node previous = null;
+        Node current = head;
+        while(current != null){
+            if(values.contains(current.value)){
+                previous.next = current.next;
+                length--;
+            }else{
+                values.add(current.value);
+                previous = current;
+            }
+
+            current=current.next;
+        }
+    }
     public void getHead(){
         System.out.println("Head "+head.value);
     }
@@ -175,4 +243,6 @@ public class LinkedList {
     public void getLength(){
         System.out.println("Length "+length);
     }
+
+
 }

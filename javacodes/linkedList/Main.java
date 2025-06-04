@@ -26,6 +26,8 @@ public class Main {
         newLinkedList.reverse();
         System.out.println("new list after reverse = ");
         newLinkedList.printLinkedList();
-
+        System.out.println("middle node is = "+newLinkedList.findMiddleNode().value);
+        System.out.println("does the linked list has loop = "+newLinkedList.hasLoop());
+        System.out.println("2nd node from last = "+newLinkedList.findKthFromEnd(2).value);
     }
 }

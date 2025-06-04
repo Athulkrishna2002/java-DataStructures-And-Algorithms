@@ -166,6 +166,25 @@ public class DoublyLinkedList {
         return temp;
 
     }
+
+    public boolean isPalindrome(){
+        if(length<=1){
+            return true;
+        }
+        Node left = head;
+        Node right = tail;
+        for (int i = 0; i < length / 2; i++){
+            if(left.value != right.value){
+                return false;
+            }
+            left = left.next;
+            right = right.prev;
+        }
+
+        return true;
+    }
+
+
     public void getHead(){
         System.out.println("Head : "+head.value);
     }
