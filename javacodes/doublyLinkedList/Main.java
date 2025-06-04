@@ -26,5 +26,7 @@ public class Main {
         System.out.println("After setting the value at 0");
         dbl.set(0,2);
         dbl.printList();
+
+        System.out.println("Does the list is pallindrome = "+dbl.isPalindrome());
     }
 }
